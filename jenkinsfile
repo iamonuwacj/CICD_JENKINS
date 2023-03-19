@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     dir ('my_web_app') {
-                        sh "aws eks --region us-east-1 update-kubeconfig  --name $(terraform output -raw cluster_name)"
+                        sh "aws eks --region us-east-1 update-kubeconfig --name test-cluster-cluster"
                         sh "kubectl apply -f postgres-deploy.yaml"
                         sh "kubectl apply -f postgres-service.yaml"
                         sh "kubectl apply -f redis-deploy.yaml"
