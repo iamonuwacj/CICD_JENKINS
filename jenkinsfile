@@ -20,7 +20,7 @@ pipeline {
         stage("Deploy to EKS cluster") {
             steps {
                 script {
-                    dir("sock-shop") {
+                    dir('sock-shop') {
                         sh "aws eks update-kubeconfig --name test-cluster-cluster"
                         sh "kubectl apply -f complete-demo.yaml"
                         sh "kubectl apply -f manifests-monitoring"
@@ -31,7 +31,7 @@ pipeline {
         stage("Deploy to Cluster") {
             steps {
                 script {
-                    dir ("my_web_app") {
+                    dir ('my_web_app') {
                         sh "aws eks update-kubeconfig --name test-cluster-cluster"
                         sh "kubectl apply -f postgres-deploy.yaml"
                         sh "kubectl apply -f postgres-service.yaml"
