@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     dir('sock-shop') {
-                        sh "aws eks --region us-east-1 update-kubeconfig --name $(terraform output -raw cluster_name)"
+                        sh "aws eks --region us-east-1 update-kubeconfig --name test-cluster-cluster"
                         sh "kubectl apply -f complete-demo.yaml"
                         sh "kubectl apply -f manifests-monitoring"
                     }
